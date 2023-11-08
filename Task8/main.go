@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// Работаем с bit операциями
+
 func setBit(n int64, pos uint) int64 {
 	return n | (int64(1) << pos)
 }
