@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// Используем sync.Map чтобы не ловить рейсы в мапе
+
 func Worker(syncMap *sync.Map) {
 	i := 0
 	for {
