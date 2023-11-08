@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// Используем контекст для корректной остановки горутин
+
 func writer(out chan int, ctx context.Context) {
 	i := 0
 	for {
@@ -35,12 +37,13 @@ func main() {
 	ctx := context.Background()
 	defer close(channel)
 
+	// Создаем воркеров
 	go worker(channel, ctx)
 	go writer(channel, ctx)
 
-	select {
-	case <-time.After(1 * time.Second):
-		ctx.Done()
-		fmt.Println("Time Out!")
-	}
+	// Создаем задержку
+	<-time.After(1 * time.Second)
+	// Ждем конца
+	ctx.Done()
+	fmt.Println("Time Out!")
 }
