@@ -11,7 +11,6 @@ func worker(in chan int, ctx context.Context) {
 	for {
 		select {
 		case <-ctx.Done():
-			close(in)
 			return
 		default:
 			fmt.Println(<-in)
