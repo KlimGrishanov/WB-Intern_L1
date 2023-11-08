@@ -10,6 +10,7 @@ func checkUniq(str string) bool {
 	str = strings.ToLower(str)
 	tempRuneArr := []rune(str)
 
+	// Создаем Set на основе мапы
 	for i := 0; i < len(tempRuneArr); i++ {
 		if _, isExist := uniqMap[tempRuneArr[i]]; isExist {
 			return false

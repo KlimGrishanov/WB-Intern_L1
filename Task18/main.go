@@ -5,6 +5,8 @@ import (
 	"sync"
 )
 
+// Обвешиваем мьютексами в вэйтгруппом чтобы ждать выполнения тасок и не ловить гонки
+
 type Counter struct {
 	wg      *sync.WaitGroup
 	mut     *sync.Mutex
@@ -15,6 +17,7 @@ func (c *Counter) getCounter() int {
 	return c.counter
 }
 
+// Защищаемся от гонок
 func (c *Counter) Increment() {
 	defer c.mut.Unlock()
 	defer c.wg.Done()
@@ -22,6 +25,7 @@ func (c *Counter) Increment() {
 	c.counter++
 }
 
+// Конструктор
 func createCounter() Counter {
 	return Counter{mut: &sync.Mutex{}, wg: &sync.WaitGroup{}, counter: 0}
 }

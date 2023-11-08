@@ -29,6 +29,7 @@ func findMedianIndex(arr []int, start, end int) int {
 	}
 }
 
+// Делим массив
 func partition(arr []int, low, high int) ([]int, int) {
 	pivot := findMedianIndex(arr, low, high)
 	arr[high], arr[pivot] = arr[pivot], arr[high]
@@ -44,6 +45,7 @@ func partition(arr []int, low, high int) ([]int, int) {
 	return arr, i
 }
 
+// Запускаем сортировки
 func quickSort(arr []int, low, high int) []int {
 	if low < high {
 		var p int
