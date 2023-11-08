@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// Создание человека и его функций
+
 type Human struct {
 	height int
 	weight int
@@ -20,6 +22,7 @@ type Action struct {
 	SomeVar int
 }
 
+// Реализуем встраивание
 func (a Action) getHeight() int {
 	return a.Human.getHeight()
 }
