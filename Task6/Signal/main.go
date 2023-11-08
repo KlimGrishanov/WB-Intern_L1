@@ -7,6 +7,8 @@ import (
 	"syscall"
 )
 
+// Завершение через отдельный канал для горутин
+
 func SignalStopWorker(in chan int, signal chan os.Signal) {
 	for {
 		select {

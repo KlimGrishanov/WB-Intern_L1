@@ -5,6 +5,8 @@ import (
 	"sync"
 )
 
+// Остановка по окончанию задач от WaitGroup
+
 func WaitGroupStopWorker(in chan int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for {

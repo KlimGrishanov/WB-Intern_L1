@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// Используем контекст для корректной остановки горутин
+
 func ContextStopWorker(in chan int, ctx context.Context) {
 	for {
 		select {
